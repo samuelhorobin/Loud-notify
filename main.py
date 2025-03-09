@@ -68,7 +68,7 @@ tone_samples = generate_tone()
 tone_sound = pygame.sndarray.make_sound(tone_samples)
 
 root = tk.Tk()
-root.title("Sound Detector")
+root.title("be quiet")
 root.geometry("400x280")
 root.resizable(False, False)
 style = ttk.Style()
@@ -77,7 +77,7 @@ style.theme_use("clam")
 main_frame = ttk.Frame(root, padding=20)
 main_frame.pack(expand=True, fill="both")
 
-title_label = ttk.Label(main_frame, text="Sound Detector", font=("Arial", 18))
+title_label = ttk.Label(main_frame, text="be quiet", font=("Arial", 18))
 title_label.pack(pady=(0, 10))
 
 threshold_slider = ttk.Scale(main_frame, from_=MIN_DB, to=MAX_DB, orient=tk.HORIZONTAL, length=300)
@@ -179,7 +179,7 @@ def on_quit():
     root.destroy()
 
 menu = pystray.Menu(pystray.MenuItem("Show", on_show), pystray.MenuItem("Exit", on_exit))
-tray_icon = pystray.Icon("sound_detector", create_icon_image(), "Sound Detector", menu)
+tray_icon = pystray.Icon("sound_detector", create_icon_image(), "be quiet", menu)
 
 def run_tray():
     tray_icon.run()

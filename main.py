@@ -90,7 +90,6 @@ threshold_label.pack(pady=(0, 10))
 current_label = ttk.Label(main_frame, text=f"Current: {current_db:.1f} dB", font=("Arial", 12))
 current_label.pack(pady=(0, 10))
 
-# Create a canvas for the dB level with a gradient from green to red
 level_canvas_width = 300
 level_canvas_height = 20
 level_canvas = tk.Canvas(main_frame, width=level_canvas_width, height=level_canvas_height, bd=0, highlightthickness=0)
@@ -105,7 +104,6 @@ def draw_gradient(canvas, width, height):
         canvas.create_line(x, 0, x, height, fill=color)
 
 draw_gradient(level_canvas, level_canvas_width, level_canvas_height)
-# Create an overlay rectangle to mask the unfilled portion
 overlay_id = level_canvas.create_rectangle(0, 0, level_canvas_width, level_canvas_height, fill="gray", outline="gray")
 
 button_frame = ttk.Frame(main_frame)
@@ -122,7 +120,6 @@ def on_threshold_change(value):
 threshold_slider.config(command=on_threshold_change)
 
 def update_level_bar(db_val):
-    # Map the current dB value to a fraction of the canvas width
     frac = (db_val - MIN_DB) / (MAX_DB - MIN_DB)
     if frac < 0:
         frac = 0
